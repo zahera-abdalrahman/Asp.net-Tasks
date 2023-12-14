@@ -43,9 +43,9 @@ namespace function3
 
 
             //Task4
-            Console.WriteLine("Enter number:");
-            int repdigitNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(repdigit(repdigitNumber));
+            Console.WriteLine(repdigit(66));
+            Console.WriteLine(repdigit(0));
+            Console.WriteLine(repdigit(-11));
 
             //Task5
             Console.WriteLine("Enter string:");
@@ -154,13 +154,26 @@ namespace function3
             Console.WriteLine(arr[1]);
         }
         ///////
-        static bool repdigit(int number)
+       static bool repdigit(int number)
         {
-            if(number>=0)
+            string a = number.ToString();
+            bool b = false;
+            if (number < 0)
             {
-                return true;
+                return false;
             }
-            return false;
+            else if (number == 0)
+            {
+                b = true;
+            }
+            else for (int i = 0; i < a.Length - 1; i++)
+                {
+                    if (a[i] == a[i + 1])
+                    {
+                        b = true;
+                    }
+                }
+            return b;
         }
         ///////
         static string arrayStrings(string sentence)
@@ -259,18 +272,22 @@ namespace function3
         }
 
         ///////
-        static bool matchLastItem(Array items)
+        static bool matchLastItem(object[] items)
         {
             if (items.Length == 0)
             {
                 return true;
             }
 
-            string lastItem = items.GetValue(items.Length - 1).ToString();
+            string lastItem = items[items.Length - 1].ToString();
+            string concatenatedItems = "";
 
-            string concatenatedItems = string.Concat(items, 0, items.Length - 1);
+            for (int i = 0; i < items.Length - 1; i++)
+            {
+                concatenatedItems += items[i].ToString();
+            }
 
-            return lastItem.Equals(concatenatedItems);
+            return lastItem == concatenatedItems;
         }
 
         ///////
@@ -289,21 +306,18 @@ namespace function3
         //////////
         static T[] RemoveDups<T>(T[] items)
         {
-            HashSet<T> uniqueItems = new HashSet<T>();
             List<T> result = new List<T>();
 
             foreach (T item in items)
             {
-                if (uniqueItems.Add(item))
+                if (!result.Contains(item))
                 {
-                    // If the item is not already in the set, add it to the result
                     result.Add(item);
                 }
             }
 
             return result.ToArray();
         }
-
         /////////
         static string convertTime(string time)
         {
@@ -328,11 +342,10 @@ namespace function3
                     }
                    
                 }
-                words[i] = new string(characters).Replace("\0", string.Empty);
+                words[i] = new string(characters).Replace("\0", "");
             }
             return string.Join(" ", words);
         }
-
         ////////
         static double sumOfCubes(int[] arr)
         {
