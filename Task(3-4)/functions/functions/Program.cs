@@ -39,37 +39,22 @@ namespace functions
 
             //Task5
 
-            Console.WriteLine("Enter number: ");
-            int arrLength2 = Convert.ToInt32(Console.ReadLine());
-            int[] nums = new int[arrLength2];
-            for (int i = 0; i < nums.Length; i++)
-            {
-                nums[i] = Convert.ToInt32(Console.ReadLine());
-            }
-            int[] result = evenNumberEvenIndex(nums);
+             int[] nums = {5,2,2,1,8,66,55,77,34,9,55,1};
+            int[] resultArray = evenNumberEvenIndex(nums);
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine("Even Numbers in Even Index: [" + string.Join(", ", resultArray) + "]");
+
 
 
 
 
             //Task6
-            Console.WriteLine("Enter number: ");
-            int stringLength = Convert.ToInt32(Console.ReadLine());
-            string[] strings = new string[stringLength];
-            for (int i = 0; i < strings.Length; i++)
-            {
-                strings[i] = Console.ReadLine();
-            }
-            string[] stringOdd = evenIndexOddLength(strings);
+             string[] stringArray = { "alex", "mercer", "madrasa", "rashed2", "emad", "hala" };
 
-            foreach (var item in stringOdd)
-            {
-                Console.WriteLine(item);
-            }
+           
+            string[] stringOdd = evenIndexOddLength(stringArray);
+
+            Console.WriteLine("Even Numbers in Even Index: [" + string.Join(", ", stringOdd) + "]");
 
 
             //Task7
@@ -95,20 +80,9 @@ namespace functions
             int numberTwo = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(numberOne + "*" + numberTwo + "=" + multiplication2(numberOne, numberTwo));
 
-            //9) Create a function called muti2
-            //that take two parameter
-            //and will return the multiplication
-            //from the first number to the second number
-            //Ex: muti2(4, 5); => 4 * 5 => 20
-            //Ex: muti2(3, 6); => 3 * 4 * 5 * 6 => 360
-            Console.WriteLine("Enter number one:");
-            int One = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter number two:");
-            int Two = Convert.ToInt32(Console.ReadLine());
-            int finalResult = 1;
-            finalResult = muti2(One, Two) * finalResult;
-            finalResult=muti2(One, Two) * finalResult;
-            Console.WriteLine(finalResult);
+            //Task9
+            Console.WriteLine(muti2(4, 5));  
+            Console.WriteLine(muti2(3, 6)); 
 
 
             //Task10
@@ -149,7 +123,7 @@ namespace functions
         static int[] evenNumberEvenIndex(int[] nums)
         {
             List<int> result = new List<int>();
-            for (int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i+=2)
             {
                 if (nums[i] % 2 == 0)
                 {
@@ -193,9 +167,14 @@ namespace functions
         {
             return num1 * num2;
         }
-        static int muti2(int num1,int num2)
+         static int muti2(int start,int end)
         {
-            int result = num1*num2;
+            int result = 1;
+            for (int i = start; i <= end; i++)
+            {
+                result *= i;
+            }
+
             return result;
         }
         static double aveArray(int[] array)
