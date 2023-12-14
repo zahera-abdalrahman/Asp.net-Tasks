@@ -20,19 +20,9 @@ namespace function2
 
 
             //Task2
-            Console.WriteLine("Enter the size of the array: ");
-            int numArray = Convert.ToInt32(Console.ReadLine());
-
-            string[] arrayNumbers = new string[numArray];
-
-            Console.WriteLine("Enter array elements:");
-            for (int i = 0; i < arrayNumbers.Length; i++)
-            {
-                arrayNumbers[i] = Console.ReadLine();
-            }
+            string[] arrayNumbers = { "1a", "a", "2b", "b" };           
 
             Console.WriteLine(string.Join(", ", numbersInStrings(arrayNumbers)));
-
             //Task3
             Console.Write("Enter a string: ");
             string String = Console.ReadLine();
@@ -42,10 +32,9 @@ namespace function2
             Console.WriteLine($"Reversed String: {reversedString}");
 
             //Task4
-            Console.WriteLine(isPandigital(98140723568910)); // true
-            Console.WriteLine(isPandigital(90864523148909)); // false
-            Console.WriteLine(isPandigital(112233445566778899)); // false
-
+            Console.WriteLine(isPandigital(98140723568910)); 
+            Console.WriteLine(isPandigital(90864523148909));
+            Console.WriteLine(isPandigital(112233445566778899)); 
 
         }
 
@@ -55,34 +44,27 @@ namespace function2
             return difference.Days;
         }
 
-        static string[] numbersInStrings(string[] inputArray)
+       static string[] numbersInStrings(string[] inputArray)
         {
             List<string> result = new List<string>();
 
             foreach (string str in inputArray)
             {
-                if (ContainsNumber(str))
+
+
+                foreach (char c in str)
                 {
-                    result.Add(str);
+                    if (char.IsDigit(c))
+                    {
+                        result.Add(str);
+                        break;
+                    }
                 }
             }
 
             return result.ToArray();
         }
-
-        static bool ContainsNumber(string str)
-        {
-            foreach (char c in str)
-            {
-                if (char.IsDigit(c))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
+       
         public static string reverseOdd(string input)
         {
             string emptyString = "";
