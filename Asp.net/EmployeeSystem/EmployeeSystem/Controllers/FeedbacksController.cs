@@ -48,7 +48,7 @@ namespace EmployeeSystem.Controllers
         // GET: Feedbacks/Create
         public IActionResult Create()
         {
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID");
+            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FirstName");
             return View();
         }
 
@@ -59,14 +59,14 @@ namespace EmployeeSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FeedbackId,SenderName,SenderEmail,FeedbackContent,EmployeeID")] Feedback feedback)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Add(feedback);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", feedback.EmployeeID);
-            return View(feedback);
+            //}
+            //ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", feedback.EmployeeID);
+            //return View(feedback);
         }
 
         // GET: Feedbacks/Edit/5
@@ -82,13 +82,11 @@ namespace EmployeeSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", feedback.EmployeeID);
+            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FirstName", feedback.EmployeeID);
             return View(feedback);
         }
 
         // POST: Feedbacks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FeedbackId,SenderName,SenderEmail,FeedbackContent,EmployeeID")] Feedback feedback)
@@ -98,8 +96,8 @@ namespace EmployeeSystem.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     _context.Update(feedback);
@@ -117,9 +115,9 @@ namespace EmployeeSystem.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", feedback.EmployeeID);
-            return View(feedback);
+            //}
+            //ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", feedback.EmployeeID);
+            //return View(feedback);
         }
 
         // GET: Feedbacks/Delete/5

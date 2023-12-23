@@ -48,7 +48,7 @@ namespace EmployeeSystem.Controllers
         // GET: Tasks/Create
         public IActionResult Create()
         {
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID");
+            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FirstName");
             return View();
         }
 
@@ -59,13 +59,13 @@ namespace EmployeeSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TaskId,TaskTitle,TaskStartDate,TaskDueDate,TaskDescription,ImportanceLevel,EmployeeID")] Tasks tasks)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Add(tasks);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", tasks.EmployeeID);
+            //}
+            //ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FirstName", tasks.EmployeeID);
             return View(tasks);
         }
 
@@ -82,7 +82,7 @@ namespace EmployeeSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", tasks.EmployeeID);
+            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FirstName", tasks.EmployeeID);
             return View(tasks);
         }
 
@@ -98,8 +98,8 @@ namespace EmployeeSystem.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     _context.Update(tasks);
@@ -117,9 +117,9 @@ namespace EmployeeSystem.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID", tasks.EmployeeID);
-            return View(tasks);
+            //}
+            //ViewData["EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "FirstName", tasks.EmployeeID);
+            //return View(tasks);
         }
 
         // GET: Tasks/Delete/5

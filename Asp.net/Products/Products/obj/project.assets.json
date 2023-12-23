@@ -11133,11 +11133,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Products\\Products\\Products.csproj",
+      "projectUniqueName": "F:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\Products\\Products\\Products.csproj",
       "projectName": "Products",
-      "projectPath": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Products\\Products\\Products.csproj",
+      "projectPath": "F:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\Products\\Products\\Products.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Products\\Products\\obj\\",
+      "outputPath": "F:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\Products\\Products\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

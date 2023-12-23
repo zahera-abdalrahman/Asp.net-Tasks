@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj": {}
+    "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj": {}
   },
   "projects": {
-    "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj": {
+    "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj",
+        "projectUniqueName": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj",
         "projectName": "EmployeeSystem",
-        "projectPath": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj",
+        "projectPath": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\EmployeeSystem\\EmployeeSystem\\EmployeeSystem.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\EmployeeSystem\\EmployeeSystem\\obj\\",
+        "outputPath": "E:\\Orange Coding School\\Asp.net\\asp.net tasks solution\\Asp.net\\EmployeeSystem\\EmployeeSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

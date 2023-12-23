@@ -49,27 +49,25 @@ namespace EmployeeSystem.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentId");
-            ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerId");
+            ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentName");
+            ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerName");
             return View();
         }
 
         // POST: Employees/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EmployeeID,FirstName,LastName,Birthdate,PhoneNumber,NationalID,Nationality,MaritalStatus,PersonalPhoto,EntryDate,DepartmentId,ManagerId")] Employee employee)
         {
-            if (ModelState.IsValid)
-            {
+            //if (!ModelState.IsValid)
+            //{
+            //ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentName", employee.DepartmentId);
+            //ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerName", employee.ManagerId);
+            //return View(employee); }
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentName", employee.DepartmentId);
-            ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerName", employee.ManagerId);
-            return View(employee);
+           
         }
 
         // GET: Employees/Edit/5
@@ -85,8 +83,8 @@ namespace EmployeeSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentId", employee.DepartmentId);
-            ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerId", employee.ManagerId);
+            ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentName", employee.DepartmentId);
+            ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerName", employee.ManagerId);
             return View(employee);
         }
 
@@ -97,13 +95,13 @@ namespace EmployeeSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("EmployeeID,FirstName,LastName,Birthdate,PhoneNumber,NationalID,Nationality,MaritalStatus,PersonalPhoto,EntryDate,DepartmentId,ManagerId")] Employee employee)
         {
-            if (id != employee.EmployeeID)
-            {
-                return NotFound();
-            }
+            //if (id != employee.EmployeeID)
+            //{
+            //    return NotFound();
+            //}
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     _context.Update(employee);
@@ -121,10 +119,10 @@ namespace EmployeeSystem.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentId", employee.DepartmentId);
-            ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerId", employee.ManagerId);
-            return View(employee);
+            //}
+            //ViewData["DepartmentId"] = new SelectList(_context.Department, "DepartmentId", "DepartmentId", employee.DepartmentId);
+            //ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerId", employee.ManagerId);
+            //return View(employee);
         }
 
         // GET: Employees/Delete/5

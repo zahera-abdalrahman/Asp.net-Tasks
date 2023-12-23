@@ -37,11 +37,10 @@
                 @Html.DisplayFor(modelItem => item.ProductPrice)
             </td>
             <td>
-                <img src="">
-                @Html.DisplayFor(modelItem => item.ImageURL)
+                    <img src="@Url.Content("~/Images/" + item.ImageURL)" style="max-width:60px">
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
